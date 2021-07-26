@@ -176,6 +176,9 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 
 
 %changelog
+* Mon Jul 26 2021 John Pierce <john@luckytanuki.com> - 11.0.0-a
+- update to 11.0
+
 * Fri May 10 2019 Mustafa Ramadhan <mustafa@bigraf.com> - 10.9.0.f-2
 - update to 10.9
 
