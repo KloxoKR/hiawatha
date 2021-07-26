@@ -4,9 +4,9 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} && 0%{?suse_version} >=1210)
 
-%define STEP_VERSION f
-%define REAL_VERSION 10.9
-%define APPEAR_VERSION 10.9.0
+%define STEP_VERSION a
+%define REAL_VERSION 11.0
+%define APPEAR_VERSION 11.0.0
 
 %define _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
@@ -15,7 +15,7 @@
 Summary:	An advanced and secure webserver for Unix
 Name:		hiawatha
 Version:	%{FULL_VERSION}
-Release:	%{STEP_VERSION}.2.kng%{?dist}
+Release:	%{STEP_VERSION}.kng%{?dist}
 Source0:	http://www.hiawatha-webserver.org/files/%{name}-%{REAL_VERSION}.tar.gz
 Source1:	%{name}-sysvscript
 Source2:	%{name}-systemd
@@ -102,9 +102,9 @@ sed -i 's|{CMAKE_INSTALL_LIBDIR}/hiawatha|{CMAKE_INSTALL_LIBDIR}|' CMakeLists.tx
 #%patch1070 -p1
 %patch1071 -p1
 
-%if 0%{?__isa_bits} != 64
-%patch1080 -p1
-%endif
+#%if 0%{?__isa_bits} != 64
+#%patch1080 -p1
+#%endif
 
 %build
 CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS
