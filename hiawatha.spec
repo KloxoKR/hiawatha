@@ -107,7 +107,7 @@ sed -i 's|{CMAKE_INSTALL_LIBDIR}/hiawatha|{CMAKE_INSTALL_LIBDIR}|' CMakeLists.tx
 #%endif
 
 %build
-CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS
+CFLAGS="${CFLAGS:-%optflags} -std=c99" ; export CFLAGS
 CXXFLAGS="${CXXFLAGS:-%optflags}" ; export CXXFLAGS
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
 %cmake3 \
@@ -194,10 +194,10 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 * Thu Oct 20 2016 Mustafa Ramadhan <mustafa@bigraf.com> - 10.4.0.f-1
 - update to 10.4
 
-* Sun Jun 04 2016 Mustafa Ramadhan <mustafa@bigraf.com> - 10.3.0.f-1
+* Sat Jun 04 2016 Mustafa Ramadhan <mustafa@bigraf.com> - 10.3.0.f-1
 - update to 10.3
 
-* Mon May 31 2016 Mustafa Ramadhan <mustafa@bigraf.com> - 10.2.0.f-7
+* Tue May 31 2016 Mustafa Ramadhan <mustafa@bigraf.com> - 10.2.0.f-7
 - add patch 22 before 10.3 release
 
 * Mon May 9 2016 Mustafa Ramadhan <mustafa@bigraf.com> - 10.2.0.f-6
@@ -209,7 +209,7 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 * Wed Dec 9 2015 Mustafa Ramadhan <mustafa@bigraf.com> - 10.0.0.f-6
 - update to 10.0
 
-* Sun Oct 17 2015 Mustafa Ramadhan <mustafa@bigraf.com> - 9.15.0.f-6
+* Sat Oct 17 2015 Mustafa Ramadhan <mustafa@bigraf.com> - 9.15.0.f-6
 - update to 9.15
 - use sed instead path for change_polarssl_to_generic_libpath
 
@@ -289,7 +289,7 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 * Sun Jul 27 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.7.b-1
 - update to 9.7.b (beta; enable urltoolkit in .hiawatha)
 
-* Thu Jun 21 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.6-2
+* Sat Jun 21 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.6-2
 - add fixdirprotect patch
 
 * Sun Jun 01 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.6-1
@@ -301,7 +301,7 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 * Thu Apr 24 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.5-1
 - update to 9.5 (with patch because the same touble like 9.5 with new polarssl)
 
-* Sun Mar 27 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.4-1
+* Tue Mar 27 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.4-1
 - update to 9.4 with patch
 
 * Thu Dec 26 2013 Mustafa Ramadhan <mustafa@bigraf.com> - 9.3.1-1
