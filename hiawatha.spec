@@ -8,8 +8,8 @@
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} && 0%{?suse_version} >=1210)
 
 %define STEP_VERSION a
-%define REAL_VERSION 11.0
-%define APPEAR_VERSION 11.0.0
+%define REAL_VERSION 10.10
+%define APPEAR_VERSION 10.10.0
 
 %define _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
@@ -132,7 +132,8 @@ FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
       -DENABLE_TOMAHAWK=ON \
       -DENABLE_TOOLKIT=ON \
       -DENABLE_TESTING=OFF \
-      -DENABLE_XSLT=on
+      -DENABLE_XSLT=on \
+	  -DUSE_SYSTEM_MBEDTLS=OFF
 
 
 %__make %{?_smp_mflags}
