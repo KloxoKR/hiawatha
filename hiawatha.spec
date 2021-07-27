@@ -7,7 +7,7 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} && 0%{?suse_version} >=1210)
 
-%define STEP_VERSION a
+%define STEP_VERSION 1
 %define REAL_VERSION 10.10
 %define APPEAR_VERSION 10.10.0
 
@@ -183,8 +183,8 @@ rm -rf %{buildroot}
 
 
 %changelog
-* Mon Jul 26 2021 John Pierce <john@luckytanuki.com> - 11.0.0-a
-- update to 11.0
+* Mon Jul 26 2021 John Pierce <john@luckytanuki.com> - 11.0.0-1
+- update to 10.10
 
 * Fri May 10 2019 Mustafa Ramadhan <mustafa@bigraf.com> - 10.9.0.f-2
 - update to 10.9
