@@ -61,7 +61,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires: cmake3 >= 3.0.0
 BuildRequires:	make, gcc, glibc-devel, libxml2-devel, libxslt-devel, redhat-rpm-config
 Requires:		libxml2,libxslt
-Provides:		polarssl, mbedtls = 3.0.0
+Provides:		polarssl, libmbedcrypto.so=10-64, libmbedtls.so=16-64, libmbedx509.so=4-64, mbedtls = 3.0.0
 Obsoletes:		polarssl, polarssl-devel, mbedtls < 3.0.0 , mbedtls-devel
 
 %description
