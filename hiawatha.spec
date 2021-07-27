@@ -1,6 +1,9 @@
 ## MR -- enable this if want create debuginfo
 %define  debug_package %{nil}
 
+#Disable unpackaged files error (may want to debug spec to see why files being left in build folder)
+%define _unpackaged_files_terminate_build 0
+
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} && 0%{?suse_version} >=1210)
 
