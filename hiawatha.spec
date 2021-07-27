@@ -154,6 +154,9 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 %{__install} -m755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 %endif
 
+%clean
+rm -rf %{buildroot}
+
 %files
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/%{name}/*
@@ -301,7 +304,7 @@ sed -i 's|/usr/var/log/hiawatha/|/var/log/hiawatha/|' %{buildroot}%{_sysconfdir}
 * Thu Apr 24 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.5-1
 - update to 9.5 (with patch because the same touble like 9.5 with new polarssl)
 
-* Tue Mar 27 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.4-1
+* Thu Mar 27 2014 Mustafa Ramadhan <mustafa@bigraf.com> - 9.4-1
 - update to 9.4 with patch
 
 * Thu Dec 26 2013 Mustafa Ramadhan <mustafa@bigraf.com> - 9.3.1-1
