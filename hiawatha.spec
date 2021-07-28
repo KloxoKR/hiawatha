@@ -8,8 +8,8 @@
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} && 0%{?suse_version} >=1210)
 
 %define STEP_VERSION 1
-%define REAL_VERSION 10.10
-%define APPEAR_VERSION 10.10.0
+%define REAL_VERSION 10.12
+%define APPEAR_VERSION 10.12.0
 
 %define _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
@@ -77,6 +77,8 @@ It has of course also thoroughly been checked and tested for buffer overflows.
 #sed -i '/^\tpolarssl/d' CMakeFiles.txt
 sed -i 's|{CMAKE_INSTALL_FULL_LIBDIR}/hiawatha|{CMAKE_INSTALL_FULL_LIBDIR}|' CMakeLists.txt
 sed -i 's|{CMAKE_INSTALL_LIBDIR}/hiawatha|{CMAKE_INSTALL_LIBDIR}|' CMakeLists.txt
+#restore permissions to lib64 files to fix dependency issues when installing from YUM/RPM 
+sed -i 's|PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ|PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE|' mbedtls/library/CMakeLists.txt
 
 #%patch0
 #%patch1000 -p1
@@ -183,7 +185,14 @@ rm -rf %{buildroot}
 
 
 %changelog
-* Mon Jul 26 2021 John Pierce <john@luckytanuki.com> - 11.0.0-1
+* Wed Jul 28 2021 John Pierce <john@luckytanuki.com> - 10.12.0-1
+- add fix to spec file to reverse changes to mbedtls library permission added in version 10.11.  This resolves dependency problems when installing via yum/rpm
+- increment to version 10.12. Changes in 10.12 include
+- mbed TLS updated to 2.26.0.
+- New LE_ISSUERS setting for Let's Encrypt script.
+- Bugfix: vfprintf issue for syslog in log.c.
+
+* Mon Jul 26 2021 John Pierce <john@luckytanuki.com> - 10.10.0-1
 - update to 10.10
 
 * Fri May 10 2019 Mustafa Ramadhan <mustafa@bigraf.com> - 10.9.0.f-2
