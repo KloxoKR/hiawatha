@@ -7,9 +7,10 @@
 # distribution specific definitions
 %define use_systemd (0%{?fedora} && 0%{?fedora} >= 18) || (0%{?rhel} && 0%{?rhel} >= 7) || (0%{?suse_version} && 0%{?suse_version} >=1210)
 
-%define STEP_VERSION 1
-%define REAL_VERSION 10.12
-%define APPEAR_VERSION 10.12.0
+%define STEP_VERSION 2
+
+%define REAL_VERSION 11.0
+%define APPEAR_VERSION 11.0.0
 
 %define _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
@@ -185,6 +186,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Mon Sep 06 2021 Sazzad Tushar Khan <itsazzad@gmail.com> - 11.0.0-2
+- update to 11.0
+
 * Wed Jul 28 2021 John Pierce <john@luckytanuki.com> - 10.12.0-1
 - add fix to spec file to reverse changes to mbedtls library permission added in version 10.11.  This resolves dependency problems when installing via yum/rpm
 - increment to version 10.12. Changes in 10.12 include
